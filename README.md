@@ -1,6 +1,6 @@
 # Ansible-UI
 
-## by `Daniel Brandao` [github](https://github.com/ds-brandao/)
+## by `Daniel Brandao`
 
 ## Table of Contents
 
