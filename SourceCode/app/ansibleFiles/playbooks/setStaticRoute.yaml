@@ -1,0 +1,31 @@
+---
+- name: Configure Cisco Router
+  hosts: "{{ device_selection }}"
+  gather_facts: false
+  remote_user: "{{ ansible_user_prompt }}"
+  connection: network_cli
+  become: true
+  become_method: enable
+  vars_files:
+    - nothing.yml
+
+  vars:
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa
+    ansible_network_os: ios
+    ansible_user: "{{ ansible_user_prompt }}"  # Ansible Vault
+    ansible_password: "{{ ansible_password_prompt }}"  # Ansible Vault
+    ansible_connection_timeout: 500
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+
+  tasks:
+    - name: Add Default Static Route
+      ios_config:
+        lines:
+          - "ip route {{ desired_route }}"
+      register: route_change_output
+
+    - name: Verify Static Route
+      ios_command:
+        commands:
+          - "show ip route static"
+      register: route_verification_output

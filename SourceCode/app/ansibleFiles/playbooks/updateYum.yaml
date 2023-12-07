@@ -1,0 +1,32 @@
+---
+- name: Update Yum
+  hosts: "{{ device_selection }}"
+  gather_facts: false
+  remote_user: "{{ ansible_user_prompt }}"
+  become: true
+  become_method: sudo
+  vars_files:
+    - nothing.yml
+
+  vars:
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa
+    ansible_user: "{{ ansible_user_prompt }}"
+    #ansible_password: "{{ ansible_password_prompt }}" 
+    ansible_become_password: "{{ ansible_become_password }}"
+    ansible_connection_timeout: 500
+
+  tasks:
+    - name: Update Yum
+      yum:
+        name: "*"
+        state: latest
+      register: yum_update_output
+
+    - name: Verify Yum Update
+      command: yum check-update
+      register: yum_verification_output
+      changed_when: false
+
+    - name: Print Yum Update Output
+      debug:
+        msg: "{{ yum_update_output }}"

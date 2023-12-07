@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - /etc/ansible:/etc/ansible
+      - ~/.ssh:/root/.ssh
+    env_file:
+      - .env
