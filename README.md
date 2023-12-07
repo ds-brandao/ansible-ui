@@ -1,6 +1,6 @@
-# Documentation for Final SEC440 - Basic front end with ansible actions wrapped in a container
+# Ansible-UI
 
-## by `Daniel Brandao` [github](https://github.com/ds-brandao/finalSEC440)
+## by `Daniel Brandao` [github](https://github.com/ds-brandao/)
 
 ## Table of Contents
 
