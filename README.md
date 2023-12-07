@@ -13,7 +13,7 @@
 
 ## Diagram
 
-![diagram](ansibleUI-finalSec440.drawio.png)
+![diagram](/Documentation/ansibleUI-finalSec440.drawio.png)
 
 <br />
 <br />
@@ -38,7 +38,7 @@ In the application, we are changing the variables the user will need to provide 
 Here we see the variables for the playbook `setStaticRoute.yml`:
 
 <p align="center">
-<img src="image.png" alt="ui-setStaticRoute" width="500"/>
+<img src="/Documentation/image.png" alt="ui-setStaticRoute" width="500"/>
 </p>
 
 <br />
@@ -74,7 +74,7 @@ Ansible is the tool we are utilizing to run the commands on the target machines 
 
 For demonstration purposes, I have written a playbook that connects to my home server and configures the application (pulling the latest version from github) and running the container.
 
-file: [setupFinal440.yaml]()
+file: [setupFinal440.yaml](https://github.com/ds-brandao/ansible-ui/blob/main/SourceCode/app/ansibleFiles/setupFinal440.yaml)
 
 Let's break down the playbook:
 
